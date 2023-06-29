@@ -51,8 +51,10 @@ public class PortalGunLogic : MonoBehaviour
         timer = 0;
     }
 
-    public void SetPortal(GameObject portal)
+    public void SetPortalLocation(ContactPoint contact)
     {
-        shotPortal = portal;
+        shotPortal = Instantiate(portal);
+        shotPortal.transform.position = contact.point;
+        shotPortal.transform.forward = contact.normal;
     }
 }
