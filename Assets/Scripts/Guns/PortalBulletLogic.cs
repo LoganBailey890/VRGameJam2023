@@ -18,7 +18,7 @@ public class PortalBulletLogic : MonoBehaviour
         timer += Time.deltaTime;
         if( timer > bulletLifeTime)
         {
-            DestroyImmediate(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -26,6 +26,6 @@ public class PortalBulletLogic : MonoBehaviour
     {
         ContactPoint contact = collision.GetContact(0);
         gunLogic.SetPortalLocation(contact);
-        DestroyImmediate(gameObject);
+        Destroy(gameObject);
     }
 }

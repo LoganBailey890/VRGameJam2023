@@ -12,7 +12,7 @@ public class PortalGunLogic : MonoBehaviour
     [SerializeField] AudioSource powerDownSound;
     private float timer = 0;
     private float setTimer = 1.2f;
-    private float bulletSpeed = 5;
+    private float bulletSpeed = 2;
     private bool isTriggerPressed = false;
     private bool isPortalShot = false;
     private GameObject shotPortal;
@@ -22,16 +22,19 @@ public class PortalGunLogic : MonoBehaviour
         if (isTriggerPressed)
         {
             timer += Time.deltaTime;
-            if(timer > setTimer && !isPortalShot) 
+            if(timer > setTimer) 
             {
-                if(shotPortal != null )
+                if (isPortalShot == true)
                 {
-                    DestroyImmediate(shotPortal);
+                    Destroy(shotPortal);
+                    shotPortal = null;
+                    isPortalShot = false;
                 }
                 shootSound.Play();
                 GameObject instBullet = Instantiate(bullet,bulletSpawn.transform);
                 instBullet.GetComponent<Rigidbody>().velocity = bulletSpawn.transform.forward * bulletSpeed;
                 isPortalShot = true;
+                isTriggerPressed = false;
             }
         }
     }
@@ -40,7 +43,6 @@ public class PortalGunLogic : MonoBehaviour
     {
         isTriggerPressed = true;
         chargeSound.Play();
-        isPortalShot = false;
     }
 
     public void OffGunTrigger()
@@ -54,7 +56,9 @@ public class PortalGunLogic : MonoBehaviour
     public void SetPortalLocation(ContactPoint contact)
     {
         shotPortal = Instantiate(portal);
-        shotPortal.transform.position = contact.point;
+        shotPortal.transform.position = new Vector3(contact.point.x, contact.point.y,contact.point.z);
         shotPortal.transform.forward = contact.normal;
+
+        Debug.Log(contact.normal);
     }
 }
