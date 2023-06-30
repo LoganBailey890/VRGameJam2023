@@ -24,6 +24,14 @@ public class TeleportPortal : MonoBehaviour
             timer = Time.deltaTime;
             if(timer > timerLength)
             {
+                switch(SceneManager.GetActiveScene().name){
+                    case "MainHub":
+                        scene = "MedievalWorld";
+                        break;
+                    case "MedievalWorld":
+                        scene = "MainHub";
+                        break;
+                }
                 SceneManager.LoadScene(scene);
             }
         }

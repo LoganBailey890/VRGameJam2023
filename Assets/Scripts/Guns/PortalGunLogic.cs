@@ -6,10 +6,10 @@ public class PortalGunLogic : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bulletSpawn;
-    [SerializeField] GameObject portal;
     [SerializeField] AudioSource chargeSound;
     [SerializeField] AudioSource shootSound;
     [SerializeField] AudioSource powerDownSound;
+    [SerializeField] GameObject portal;
     private float timer = 0;
     private float setTimer = 1.2f;
     private float bulletSpeed = 2;
