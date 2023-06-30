@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59678192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.9, z: 13.3}
+  m_LocalPosition: {x: 0, y: 3.9, z: 31.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2592,7 +2592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4195383735805647733, guid: a09151dfcf8b18a439ea6982b6c86cb5, type: 3}
-  bulletSpawn: {fileID: 2971346621272684431}
+  bulletSpawn: {fileID: 59678192}
   portal: {fileID: 3457721548173730076, guid: 9c4bbfa7f25b3a840b4aaa183ba2222d, type: 3}
   chargeSound: {fileID: 2971346621275581333}
   shootSound: {fileID: 2971346621275581332}
